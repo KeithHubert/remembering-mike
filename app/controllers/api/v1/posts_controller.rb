@@ -2,8 +2,6 @@
 module Api::V1
   class PostsController < ApplicationController
 
-    has_many_attached :pictures
-
     def index
       @posts = Post.all
       render json: @posts
@@ -17,6 +15,7 @@ module Api::V1
     def create
       @posts = Post.new(post_params)
 
+      print post_params
       if @posts.save
         render json: @posts, status: :created
       else
@@ -41,9 +40,10 @@ module Api::V1
     private
 
     def post_params
-      params
-          .require(:post)
-          .permit(:company, :position, :description)
+      params.require(:posts).permit(
+        :body, 
+        :commenter
+      )
     end
 
   end
