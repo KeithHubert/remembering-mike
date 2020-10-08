@@ -7,7 +7,7 @@ import Post from './Post';
 const initialFormState = {
   body: '',
   commenter: '',
-  image: false,
+  photos: [],
   flagged: false,
 }
 
@@ -33,7 +33,7 @@ const Posts = () => {
         posts: {
           body: post.body,
           commenter: post.commenter,
-          image: post.image,
+          photos: post.photos,
           flagged: post.flagged
         }
       }))

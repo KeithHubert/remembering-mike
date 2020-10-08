@@ -42,7 +42,8 @@ module Api::V1
     def post_params
       params.require(:posts).permit(
         :body, 
-        :commenter
+        :commenter,
+        photos: []
       )
     end
 
